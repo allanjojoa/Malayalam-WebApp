@@ -13,13 +13,13 @@ var lesson=
                   `
     },
     'lesson-three' : {
-    title:'Lesson One|WebApp',
+    title:'Lesson Two|WebApp',
     heading:'Lesson One',
     content:`<iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" frameborder="0" allowfullscreen></iframe>
                   `
     },
     'lesson-two' : {
-    title:'Lesson One|WebApp',
+    title:'Lesson Three|WebApp',
     heading:'Lesson TWo',
     content:`
           <iframe src="https://www.youtube.com/embed/PMivT7MJ41M" frameborder="0" allowfullscreen></iframe>
@@ -124,7 +124,7 @@ function createTemplate(data){
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/lesson-one">Lesson 1</a></li>
             <li><a href="/lesson-two">Lesson 2</a></li>
-            <li><a href="#">Lesson 3</a></li>
+            <li><a href="/lesson-three">Lesson 3</a></li>
             <li><a href="#">Lesson 4</a></li>
             <li><a href="#">Lesson 5</a></li>
             <li><a href="#">Lesson 1</a></li>
