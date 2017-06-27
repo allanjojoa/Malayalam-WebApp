@@ -12,6 +12,12 @@ var lesson=
     content:`<iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" frameborder="0" allowfullscreen></iframe>
                   `
     },
+    'lesson-three' : {
+    title:'Lesson One|WebApp',
+    heading:'Lesson One',
+    content:`<iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" frameborder="0" allowfullscreen></iframe>
+                  `
+    },
     'lesson-two' : {
     title:'Lesson One|WebApp',
     heading:'Lesson TWo',
