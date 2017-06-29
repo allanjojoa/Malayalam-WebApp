@@ -6,26 +6,77 @@ var app = express();
 
 var lesson=
 {
-    'lesson-one' : {
-    title:'Lesson One|WebApp',
-    heading:'Lesson One',
-    content:`<iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" frameborder="0" allowfullscreen></iframe>
-                  `
-    },
-    'lesson-three' : {
-    title:'Lesson Two|WebApp',
-    heading:'Lesson One',
-    content:`<iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" frameborder="0" allowfullscreen></iframe>
-                  `
-    },
-    'lesson-two' : {
-    title:'Lesson Three|WebApp',
-    heading:'Lesson TWo',
-    content:`
-          <iframe src="https://www.youtube.com/embed/PMivT7MJ41M" frameborder="0" allowfullscreen></iframe>
-                  `
-    }
-    };
+
+  'lesson-one' : {
+  title:'Lesson One|WebApp',
+  heading:'Lesson One',
+  description:'abcd',
+  content:`<iframe src="https://www.youtube.com/embed/zVBY871JNi0" frameborder="0" allowfullscreen></iframe>
+                `
+  },
+  'lesson-two' : {
+  title:'Lesson One|WebApp',
+  heading:'Lesson One',
+  description:'abcd',
+  content:`<iframe src="https://www.youtube.com/embed/NMDaQcxSSZo" frameborder="0" allowfullscreen></iframe>
+                `
+  },
+  'lesson-three' : {
+  title:'Lesson One|WebApp',
+  heading:'Lesson One',
+  description:'abcd',
+  content:`<iframe src="https://www.youtube.com/embed/IDP-CTX83qE" frameborder="0" allowfullscreen></iframe>
+                `
+  },
+  'lesson-four' : {
+  title:'Lesson One|WebApp',
+  heading:'Lesson One',
+  description:'abcd',
+  content:`<iframe src="https://www.youtube.com/embed/Yrp34qm5WL8" frameborder="0" allowfullscreen></iframe>
+                `
+  },
+  'lesson-five' : {
+  title:'Lesson One|WebApp',
+  heading:'Lesson One',
+  description:'abcd',
+  content:`<iframe src="https://www.youtube.com/embed/T_eIdMnue24" frameborder="0" allowfullscreen></iframe>
+                `
+  },
+  'lesson-six' : {
+  title:'Lesson One|WebApp',
+  heading:'Lesson One',
+  description:'abcd',
+  content:`<iframe src="https://www.youtube.com/embed/TCJff8GNX3k" frameborder="0" allowfullscreen></iframe>
+                `
+  },
+  'lesson-seven' : {
+  title:'Lesson One|WebApp',
+  heading:'Lesson One',
+  description:'abcd',
+  content:`<iframe src="https://www.youtube.com/embed/4Vr2ZnBNVJk" frameborder="0" allowfullscreen></iframe>
+                `
+  },'lesson-eight' : {
+  title:'Lesson One|WebApp',
+  heading:'Lesson One',
+  description:'abcd',
+  content:`<iframe src="https://www.youtube.com/embed/pZ12CMGtEOM" frameborder="0" allowfullscreen></iframe>
+                `
+  },
+  'lesson-nine' : {
+  title:'Lesson One|WebApp',
+  heading:'Lesson One',
+  description:'abcd',
+  content:`<iframe src="https://www.youtube.com/embed/e12EEi36cuc" frameborder="0" allowfullscreen></iframe>
+                `
+  },
+  'lesson-ten' : {
+  title:'Lesson One|WebApp',
+  heading:'Lesson One',
+  description:'abcd',
+  content:`<iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" frameborder="0" allowfullscreen></iframe>
+                `
+  }
+  };
 
 
 
@@ -33,6 +84,7 @@ function createTemplate(data){
     var title=data.title;
     var content=data.content;
     var heading=data.heading;
+    var description=data.description;
 
     var htmlTemplate=`
     <!DOCTYPE html>
@@ -51,32 +103,36 @@ function createTemplate(data){
         .embeded-video {
           position: relative
         }
-        .navbar
-        {
-          margin-bottom: 0;
-        }
-
-        .navbar li a, .navbar .navbar-brand {
-        color: black !important;
-    }
-
-    .navbar-nav li a:hover, .navbar-nav li.active a {
-        color: #f4511e !important;
-        background-color: #fff !important;
-    }
-
-    .navbar-default .navbar-toggle {
-        border-color: transparent;
-        color: #fff !important;
-    }
+        .navbar {
+              margin-bottom: 0;
+              background-color: #f4511e;
+              // z-index: 9999;
+              // border: 0;
+              // font-size: 12px !important;
+              // line-height: 1.42857143 !important;
+              // letter-spacing: 4px;
+              // border-radius: 0;
+              // font-family: Montserrat, sans-serif;
+          }
+          .navbar li a, .navbar .navbar-brand {
+              color: #fff !important;
+          }
+          .navbar-nav li a:hover, .navbar-nav li.active a {
+              color: #f4511e !important;
+              background-color: #fff !important;
+          }
+          .navbar-default .navbar-toggle {
+              border-color: transparent;
+              color: #fff !important;
+          }
         .jumbotron
         {
         /*padding-top: 0px;
         padding-bottom:0px;*/
         margin: 0;
-        /*background-image:url('images/car/car.jpg');
-        background-size: cover;*/
-        background-color: black;
+        // background-image:url('http://www.indiaholidayarchitects.com/wp-content/uploads/2014/12/Kerala-India-travel-background-green-tea-plantations-in-Munnar-Kerala-India-copy-1024x550.jpg') ;
+        // background-size: cover;
+        // background-color: black;
         position: relative;
         height:150px;
          }
@@ -103,11 +159,12 @@ function createTemplate(data){
       <script src="/ui/js/bootstrap.min.css"></script>
     </head>
 
-    <body style="background-color:white">
+    <body style="background:white">
       <nav class="navbar navbar-default ">
-        <div class="jumbotron" style="background-color:#f8f8f8">
+        <div class="jumbotron" style="background-color:#ff6700">
           <div class="container">
-            <h1>Heading</h1>
+          <h1>ആദ്യാക്ഷരം</h1>
+            <p>LEARN MALAYALAM THE EASY WAY!!!</p>
             <!-- <p>Paragraph Paragraph Paragraph Paragraph Paragraph</p> -->
           </div>
         </div>
@@ -118,20 +175,20 @@ function createTemplate(data){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Logo</a>
+          <a class="navbar-brand" href="#">Home</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/lesson-one">Lesson 1</a></li>
             <li><a href="/lesson-two">Lesson 2</a></li>
             <li><a href="/lesson-three">Lesson 3</a></li>
-            <li><a href="#">Lesson 4</a></li>
-            <li><a href="#">Lesson 5</a></li>
-            <li><a href="#">Lesson 1</a></li>
-            <li><a href="#">Lesson 2</a></li>
-            <li><a href="#">Lesson 3</a></li>
-            <li><a href="#">Lesson 4</a></li>
-            <li><a href="#">Lesson 5</a></li>
+            <li><a href="/lesson-four">Lesson 4</a></li>
+            <li><a href="/lesson-five">Lesson 5</a></li>
+            <li><a href="/lesson-six">Lesson 6</a></li>
+            <li><a href="/lesson-seven">Lesson 7</a></li>
+            <li><a href="/lesson-eight">Lesson 8</a></li>
+            <li><a href="/lesson-nine">Lesson 9</a></li>
+            <li><a href="/lesson-ten">Lesson 10</a></li>
           </ul>
         </div>
       </div>
@@ -148,7 +205,7 @@ function createTemplate(data){
           <div class="col-md-4">
             <!-- second col -->
             <h3>${heading}</h3>
-            <p>Paragraph</p </div>
+            <p>${description}</p </div>
           </div>
         </div>
     </body>
