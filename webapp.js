@@ -23,7 +23,7 @@ con.connect(function(err) {
     if (err) throw err;
     console.log("Datase Selected Sucessfully");
   });
-  var sql = "CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))";
+  var sql = "CREATE TABLE users (username VARCHAR(255), email VARCHAR(255), password VARCHAR(255))";
   con.query(sql, function(err, result) {
     if (err = "ER_TABLE_EXISTS_ERROR") console.log("Table Already Created");
     else if (err) throw err;
@@ -106,7 +106,73 @@ var lesson = {
   }
 };
 
+app.get('/', function(req, res) {
+  // res.sendFile(path.join(__dirname,'ui','main.html'))
+  // res.send(createTemplate(lesson['lesson-one']));
+  res.redirect('login');
+});
 
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+app.get('/login', function(req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'b.html'));
+});
+
+app.get('/home', function(req, res) {
+  res.send(createTemplate(lesson['lesson-one']));
+});
+
+app.post("/login_post", function(req, res) {
+  if (req.method == 'POST') {
+    //var sql = "select * from users where email='allanjojoa@gmail.com' and password='allan';";
+    var sql = "select * from users where email='"+req.body.userid+"' and password='"+req.body.password+"';";
+    con.query(sql, function (err, result) {
+      numRows=result.length;
+      console.log(numRows);
+      if(numRows>0) res.redirect('home');
+      else res.redirect('login');
+    });
+
+  }
+});
+
+app.get('/signup', function(req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'su.html'));
+});
+
+app.post("/signup_post", function(req, res) {
+  if (req.method == 'POST') {
+    var sql = "INSERT INTO users (username,email,password) VALUES ('"+req.body.fname+"','"+req.body.email+"','"+req.body.password+"')";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 new user");
+  });
+    res.redirect('login');
+  }
+});
+
+app.get('/ui/js/boostrap.min.js', function(req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'js', 'bootstrap.min.js'))
+});
+
+app.get('/:lessonName', function(req, res) {
+  var lessonName = req.params.lessonName;
+  res.send(createTemplate(lesson[lessonName]));
+});
+
+app.get('/ui/css/bootstrap.min.css', function(req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'css', 'bootstrap.min.css'))
+});
+app.get('/ui/js/jquery.min.js', function(req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'js', 'jquery.min.js'))
+})
+
+var port = 8080;
+app.listen(8080, function() {
+  console.log(`Port ${port}!`);
+});
 
 function createTemplate(data) {
   var title = data.title;
@@ -243,43 +309,3 @@ function createTemplate(data) {
                 `;
   return htmlTemplate;
 }
-
-app.get('/', function(req, res) {
-  // res.sendFile(path.join(__dirname,'ui','main.html'))
-  res.send(createTemplate(lesson['lesson-one']));
-});
-
-app.get('/login', function(req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'b.html'))
-});
-
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-
-app.post("/login_post", function(req, res) {
-  if (req.method == 'POST') {
-    res.send('You sent the userid "' + req.body.userid + '".');
-  }
-});
-
-app.get('/ui/js/boostrap.min.js', function(req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'js', 'bootstrap.min.js'))
-});
-app.get('/:lessonName', function(req, res) {
-  //articleName=Article-one or artcile-two
-  var lessonName = req.params.lessonName;
-  res.send(createTemplate(lesson[lessonName]));
-});
-
-app.get('/ui/css/bootstrap.min.css', function(req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'css', 'bootstrap.min.css'))
-});
-app.get('/ui/js/jquery.min.js', function(req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'js', 'jquery.min.js'))
-})
-
-var port = 8080;
-app.listen(8080, function() {
-  console.log(`Port ${port}!`);
-});
