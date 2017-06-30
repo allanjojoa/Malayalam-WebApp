@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+
+h3{background-color: #75F1EE;
+
+}
+div {
+    border-radius: 5px;
+    background-color: green;
+    padding: 20px;
+    width: 50%;
+    left: 25%;
+    top:50%;
+    position:relative;
+    margin-top:50px;
+}
+
+body {
+    background-color: grey;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: green;
+}
+</style>
+
+
+</head>
+<body>
+<h1>ആദ്യാക്ഷരം</h1>
+<ul>
+  <li><a class="active" href="su.html">Sign up</a></li>
+  </ul>
+
+<h3>Sign in to continue</h3>
+
+    <div>
+  	<form action="http://localhost:8080/login_post" method="POST">
+    	<label for="userid">user id  </label><br>
+    	<input type="text" id="userid" name="userid" placeholder="userid">
+	<br>
+    	<label for="password">password</label><br>
+    	<input type="password" id="password" name="password" placeholder="password">
+        <br><br><br>
+
+   	 <input type="submit" value="Submit">
+  	</form>
+	</div>
+
+
+</body>
+</html>
