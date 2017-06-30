@@ -4,6 +4,35 @@ var path = require('path');
 
 var app = express();
 
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "root"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  con.query("CREATE DATABASE malayalam_webapp", function (err, result) {
+    if (err="ER_DB_CREATE_EXISTS:") console.log("Database already created");
+    else if (err) throw err;
+    else console.log("Database created");
+  });
+  con.query("USE malayalam_webapp",function(err,result){
+     if (err) throw err;
+     console.log("Datase Selected Sucessfully"); 
+  });
+var sql = "CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))";
+  con.query(sql, function (err, result) {
+    if (err="ER_TABLE_EXISTS_ERROR") console.log("Table Already Created");
+    else if (err) throw err;
+    else console.log("Table created");
+  });
+    con.end();
+});
+
 var lesson=
 {
 
