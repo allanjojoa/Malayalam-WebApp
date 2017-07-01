@@ -12,9 +12,11 @@ var con = mysql.createConnection({
   password: "root"
 });
 
+var dbname="malayalam_webapp";
+var table_name="users";
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected!");
+  console.log("Database Connected!");
   con.query("CREATE DATABASE malayalam_webapp", function(err, result) {
     if (err = "ER_DB_CREATE_EXISTS:") console.log("Database already created");
     else if (err) throw err;
@@ -22,13 +24,13 @@ con.connect(function(err) {
   });
   con.query("USE malayalam_webapp", function(err, result) {
     if (err) throw err;
-    console.log("Datase Selected Sucessfully");
+    console.log("Datase Selected Sucessfully:  "+dbname);
   });
   var sql = "CREATE TABLE users (username VARCHAR(255), email VARCHAR(255), password VARCHAR(255))";
   con.query(sql, function(err, result) {
-    if (err = "ER_TABLE_EXISTS_ERROR") console.log("Table Already Created");
+    if (err = "ER_TABLE_EXISTS_ERROR") console.log("Table Already Created:  "+table_name);
     else if (err) throw err;
-    else console.log("Table created");
+    else console.log("Table created:  "+table_name);
   });
   // con.end();
 });
@@ -36,70 +38,70 @@ con.connect(function(err) {
 var lesson = {
 
   'lesson-one': {
-    title: 'Lesson One|WebApp',
+    //title: 'Lesson One|WebApp',
     heading: 'Lesson One',
     description: 'abcd',
     content: `<iframe src="https://www.youtube.com/embed/zVBY871JNi0" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-two': {
-    title: 'Lesson Two|WebApp',
+    //title: 'Lesson Two|WebApp',
     heading: 'Lesson Two',
     description: 'abcd',
     content: `<iframe src="https://www.youtube.com/embed/NMDaQcxSSZo" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-three': {
-    title: 'Lesson Three|WebApp',
+    //title: 'Lesson Three|WebApp',
     heading: 'Lesson Three',
     description: 'abcd',
     content: `<iframe src="https://www.youtube.com/embed/IDP-CTX83qE" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-four': {
-    title: 'Lesson Four|WebApp',
+    //title: 'Lesson Four|WebApp',
     heading: 'Lesson Four',
     description: 'abcd',
     content: `<iframe src="https://www.youtube.com/embed/Yrp34qm5WL8" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-five': {
-    title: 'Lesson Five|WebApp',
+    //title: 'Lesson Five|WebApp',
     heading: 'Lesson Five',
     description: 'abcd',
     content: `<iframe src="https://www.youtube.com/embed/T_eIdMnue24" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-six': {
-    title: 'Lesson Six|WebApp',
+    //title: 'Lesson Six|WebApp',
     heading: 'Lesson Six',
     description: 'abcd',
     content: `<iframe src="https://www.youtube.com/embed/TCJff8GNX3k" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-seven': {
-    title: 'Lesson Seven|WebApp',
+    //title: 'Lesson Seven|WebApp',
     heading: 'Lesson Seven',
     description: 'abcd',
     content: `<iframe src="https://www.youtube.com/embed/4Vr2ZnBNVJk" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-eight': {
-    title: 'Lesson Eight|WebApp',
+    //title: 'Lesson Eight|WebApp',
     heading: 'Lesson Eight',
     description: 'abcd',
     content: `<iframe src="https://www.youtube.com/embed/pZ12CMGtEOM" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-nine': {
-    title: 'Lesson Nine|WebApp',
+    //title: 'Lesson Nine|WebApp',
     heading: 'Lesson Nine',
     description: 'abcd',
     content: `<iframe src="https://www.youtube.com/embed/e12EEi36cuc" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-ten': {
-    title: 'Lesson Ten|WebApp',
+    //title: 'Lesson Ten|WebApp',
     heading: 'Lesson Ten',
     description: 'abcd',
     content: `<iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" frameborder="0" allowfullscreen></iframe>
@@ -135,7 +137,6 @@ app.post("/login_post", function(req, res) {
     var sql = "select * from users where email='" + req.body.userid + "' and password='" + req.body.password + "';";
     con.query(sql, function(err, result) {
       numRows = result.length;
-      console.log(numRows);
       if (numRows > 0) {
         login_status=1;
         res.redirect('home');
@@ -175,7 +176,7 @@ app.listen(8080, function() {
 });
 
 function createTemplate(data) {
-  var title = data.title;
+  //var title = data.title;
   var content = data.content;
   var heading = data.heading;
   var description = data.description;
@@ -328,13 +329,6 @@ function createTemplate(data) {
       </div>
     </section>
     <!-- /Section: about -->
-
-
-
-
-
-
-
 
     <footer>
       <div class="container">
