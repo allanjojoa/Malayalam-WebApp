@@ -4,7 +4,7 @@ var path = require('path');
 var app = express();
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
-var login_status=0;
+var login_status = 0;
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -12,8 +12,8 @@ var con = mysql.createConnection({
   password: "root"
 });
 
-var dbname="malayalam_webapp";
-var table_name="users";
+var dbname = "malayalam_webapp";
+var table_name = "users";
 con.connect(function(err) {
   if (err) throw err;
   console.log("Database Connected!");
@@ -24,13 +24,13 @@ con.connect(function(err) {
   });
   con.query("USE malayalam_webapp", function(err, result) {
     if (err) throw err;
-    console.log("Datase Selected Sucessfully:  "+dbname);
+    console.log("Database Selected Sucessfully:  " + dbname);
   });
   var sql = "CREATE TABLE users (username VARCHAR(255), email VARCHAR(255), password VARCHAR(255))";
   con.query(sql, function(err, result) {
-    if (err = "ER_TABLE_EXISTS_ERROR") console.log("Table Already Created:  "+table_name);
+    if (err = "ER_TABLE_EXISTS_ERROR") console.log("Table Already Created:  " + table_name);
     else if (err) throw err;
-    else console.log("Table created:  "+table_name);
+    else console.log("Table created:  " + table_name);
   });
   // con.end();
 });
@@ -111,10 +111,17 @@ var lesson = {
 
 app.get('/', function(req, res) {
   // res.sendFile(path.join(__dirname,'ui','main.html'))
-  if(login_status>0)
-  res.send(createTemplate(lesson['lesson-one']));
+  if (login_status > 0)
+    res.send(createTemplate(lesson['lesson-one']));
   else res.redirect('login');
 });
+app.get('/new-webpage', function(req, res) {
+  // res.sendFile(path.join(__dirname,'ui','main.html'))
+  if (login_status > 0)
+    res.sendFile(path.join(__dirname, 'ui', 'main.html'));
+  else res.redirect('login');
+});
+
 app.use(express.static(__dirname + '/ui'));
 
 app.use(bodyParser.urlencoded({
@@ -126,8 +133,8 @@ app.get('/login', function(req, res) {
 });
 
 app.get('/home', function(req, res) {
-  if(login_status>0)
-  res.send(createTemplate(lesson['lesson-one']));
+  if (login_status > 0)
+    res.send(createTemplate(lesson['lesson-one']));
   else res.redirect('login');
 });
 
@@ -138,10 +145,9 @@ app.post("/login_post", function(req, res) {
     con.query(sql, function(err, result) {
       numRows = result.length;
       if (numRows > 0) {
-        login_status=1;
+        login_status = 1;
         res.redirect('home');
-      }
-      else res.redirect('login');
+      } else res.redirect('login');
     });
 
   }
@@ -163,11 +169,10 @@ app.post("/signup_post", function(req, res) {
 });
 
 app.get('/:lessonName', function(req, res) {
-  if(login_status>0){
+  if (login_status > 0) {
     var lessonName = req.params.lessonName;
     res.send(createTemplate(lesson[lessonName]));
-  }
-  else res.redirect('login');
+  } else res.redirect('login');
 });
 
 var port = 8080;
