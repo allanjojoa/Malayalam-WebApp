@@ -108,6 +108,11 @@ var lesson = {
                 `
   }
 };
+app.use(express.static(__dirname + '/ui'));
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.get('/', function(req, res) {
   // res.sendFile(path.join(__dirname,'ui','main.html'))
@@ -122,12 +127,6 @@ app.get('/new-webpage', function(req, res) {
   else res.redirect('login');
 });
 
-app.use(express.static(__dirname + '/ui'));
-
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-
 app.get('/login', function(req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'b.html'));
 });
@@ -141,6 +140,7 @@ app.get('/home', function(req, res) {
 app.post("/login_post", function(req, res) {
   if (req.method == 'POST') {
     //var sql = "select * from users where email='allanjojoa@gmail.com' and password='allan';";
+    console.log(req.body.userid);
     var sql = "select * from users where email='" + req.body.userid + "' and password='" + req.body.password + "';";
     con.query(sql, function(err, result) {
       numRows = result.length;
