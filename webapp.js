@@ -39,64 +39,64 @@ var lesson = {
 
   'lesson-one': {
     //title: 'Lesson One|WebApp',
-    heading: 'Lesson One',
-    description: 'abcd',
+    heading: "Let's Talk!",
+    description: 'Introductory video for basic conversations in malayalam',
     content: `<iframe src="https://www.youtube.com/embed/zVBY871JNi0" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-two': {
     //title: 'Lesson Two|WebApp',
-    heading: 'Lesson Two',
-    description: 'abcd',
+    heading: 'Questions Anyone?',
+    description: 'Learn to ask questions in malayalam',
     content: `<iframe src="https://www.youtube.com/embed/NMDaQcxSSZo" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-three': {
     //title: 'Lesson Three|WebApp',
-    heading: 'Lesson Three',
-    description: 'abcd',
+    heading: 'Relationships',
+    description: 'Learn the wors for describing a particular relationship',
     content: `<iframe src="https://www.youtube.com/embed/IDP-CTX83qE" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-four': {
     //title: 'Lesson Four|WebApp',
-    heading: 'Lesson Four',
-    description: 'abcd',
+    heading: '3! 2! 1! 0!',
+    description: 'Learn the words for numerals and the system',
     content: `<iframe src="https://www.youtube.com/embed/Yrp34qm5WL8" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-five': {
     //title: 'Lesson Five|WebApp',
-    heading: 'Lesson Five',
-    description: 'abcd',
+    heading: 'A week?!',
+    description: 'Learn the days of a week and the calendar system',
     content: `<iframe src="https://www.youtube.com/embed/T_eIdMnue24" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-six': {
     //title: 'Lesson Six|WebApp',
-    heading: 'Lesson Six',
-    description: 'abcd',
+    heading: 'Time is up! Lets go',
+    description: 'Learn the time system the quick way!!',
     content: `<iframe src="https://www.youtube.com/embed/TCJff8GNX3k" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-seven': {
     //title: 'Lesson Seven|WebApp',
-    heading: 'Lesson Seven',
-    description: 'abcd',
+    heading: 'Additional Time',
+    description: 'Learn more about the time system',
     content: `<iframe src="https://www.youtube.com/embed/4Vr2ZnBNVJk" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-eight': {
     //title: 'Lesson Eight|WebApp',
-    heading: 'Lesson Eight',
-    description: 'abcd',
+    heading: 'Follow The Rules!',
+    description: 'Learn malayalam grammar - part 1',
     content: `<iframe src="https://www.youtube.com/embed/pZ12CMGtEOM" frameborder="0" allowfullscreen></iframe>
                 `
   },
   'lesson-nine': {
     //title: 'Lesson Nine|WebApp',
-    heading: 'Lesson Nine',
-    description: 'abcd',
+    heading: 'Rules Are Rules!!',
+    description: 'Learn malayalam grammar - part 2',
     content: `<iframe src="https://www.youtube.com/embed/e12EEi36cuc" frameborder="0" allowfullscreen></iframe>
                 `
   },
